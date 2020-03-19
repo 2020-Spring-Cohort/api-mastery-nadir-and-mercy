@@ -13,7 +13,7 @@ public class Director {
     @Id
     @GeneratedValue
     private Long id;
-   @OneToMany(mappedBy = "director")
+    @OneToMany(mappedBy = "director")
     private Collection<Movie> movies;
    private String name;
 
