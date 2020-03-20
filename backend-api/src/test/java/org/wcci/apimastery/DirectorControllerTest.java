@@ -11,6 +11,7 @@ import java.util.Optional;
 import static org.hamcrest.Matchers.is;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -50,14 +51,14 @@ public class DirectorControllerTest {
                 .andExpect(status().isOk());
 
     }
-//    @Test
-//    public void underTestIsWiredCorrectlyForSingleDirector() throws Exception {
-//        when(directorRepository.findById(1L)).thenReturn(Optional.of(testDirector));
-//        mockMvc.perform(get("/directors/1/"))
-//                .andExpect(status().isOk())
-//                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(jsonPath("$.name", is("test")))
+    @Test
+    public void underTestIsWiredCorrectlyForSingleDirector() throws Exception {
+        when(directorRepository.findById(1L)).thenReturn(Optional.of(testDirector));
+        mockMvc.perform(get("/directors/1/"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.name", is("test")));
 //                .andExpect(jsonPath("$.movies", is(null)));
-//    }
+    }
 
 }
